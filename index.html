@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamidur Rahman</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon.png">
+
+    <!-- Preconnect and Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Families -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Embedded CSS -->
+    <style>
+        /* Reset and Base Styles */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box; /* Ensures consistent sizing */
+        }
+
+        body {
+            background: linear-gradient(135deg, rgb(199, 199, 198), #ecf4ce);
+            font-family: "Caveat", cursive; /* Base font family */
+        }
+
+        /* Navbar Styles */
+        .nav {
+            display: flex;
+            justify-content: center; 
+            width: 100%;
+            padding: 20px 0; 
+            position: fixed;
+            top: 0; 
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.75); 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000; /* Ensures the navbar stays above other content */
+            transition: top 0.3s; /* Smooth transition for dynamic show/hide */
+        }
+
+        .nav-links {
+            position: relative; /* For positioning the hamburger menu */
+            width: 100%;
+            max-width: 1200px; /* Limits the width on large screens */
+        }
+
+        .nav-links ul {
+            list-style-type: none; 
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links ul li {
+            display: inline-block; 
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        .nav-links ul li a {
+            text-decoration: none;
+            color: rgb(71, 71, 72);
+            margin: 0 35px; 
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links ul li:hover {
+            box-shadow: 0 4px 8px rgba(92, 10, 234, 0.2);
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1001; /* Above the nav bar */
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+
+        .main {
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px; 
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .main-picture img {
+            margin-top: -50px;  
+            width: 30%;
+            object-fit: cover;
+        }
+
+        .main-text {
+            margin-top: -40px;            
+            font-size: 2.5em;
+            font-family: "Almendra", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .main-colour-text {
+            color: rgb(72, 76, 128);
+        }
+
+        .changing-text {
+            display: flex; /* Flexbox to center items */
+            justify-content: center; /* Horizontally centers content */
+            align-items: center; /* Vertically centers content */
+            position: relative; /* Required for absolute positioning of spans */
+            height: 100px; /* Adjust this to fit your layout */
+            overflow: hidden;
+            text-align: center;
+            color: #f44336;
+        }
+
+        .changing-text span {
+            display: inline-block;
+            opacity: 0;
+            animation: fade 8s infinite;
+            position: absolute;
+            font-size: 50px;
+            transform: translateX(-50%); /* Ensures text is horizontally centered */
+            left: 50%; /* Centers span horizontally */
+            white-space: nowrap; /* Prevents text from wrapping */
+            font-family: "Gloria Hallelujah", cursive;
+        }
+
+        .changing-text span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .changing-text span:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        .changing-text span:nth-child(3) {
+            animation-delay: 4s;
+        }
+
+        .changing-text span:nth-child(4) {
+            animation-delay: 6s;
+        }
+
+        @keyframes fade {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            25% { opacity: 1; }
+            35% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .main-discription {
+            margin: auto;
+            text-align: center;
+            width: 60%;
+        }
+
+        .main-discription p {
+            font-size: 1.5em;
+            font-family: "Caveat", cursive;
+        }
+
+
+        .skill {
+            padding-top: 40px;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .skill-text h3 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 2em;
+            color: rgb(64, 63, 63);
+        }
+
+        .skill-button {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+        }
+
+        .skill-button a {
+            font-family: "Dancing Script", cursive;
+            font-weight: bolder;
+            text-decoration: none;
+            padding: 10px 20px; 
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+            transition: transform 0.3s ease;
+            max-width: 150px; /* Adjust the width */
+            width: auto; /* Allows the width to adjust based on content */
+            display: inline-block;
+            text-align: center; 
+            border-radius: 5px; 
+
+        }
+
+        .skill-button a:hover {
+            transform: scale(1.3);
+            background-color: #f0f0f0;
+        }
+
+
+        .social {
+            display: inline-block;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .social-text {
+            padding-top: 0px;
+        }
+
+        .social-text h3 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 2em;
+            color: rgb(64, 63, 63);
+        }
+
+        .social-img img {
+            padding-top: 30px;
+            width: 40px;
+            transition: transform 0.3s ease;
+            margin: 0 10px; 
+        }
+
+        .social-img img:hover {
+            transform: scale(0.9); 
+        }
+
+        .education {
+            margin: auto;
+            text-align: center;
+            max-width: 60%;
+        }
+
+        .education h3 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 2em;
+            color: rgb(64, 63, 63);
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .education p {
+            font-family: "Caveat", cursive;
+            margin-left: 20px;
+            margin-right: 20px;
+            font-size: 1.4em;
+        }
+
+
+        .mupi, .shamgonj, .mujata {
+            margin-bottom: 40px;
+        }
+
+        .mupi-img{
+            width: 50%;
+            float: left;
+            height: 300px;
+            text-align: center;              
+            justify-content: center;           
+            background-size: cover;          
+            background-position: center;     
+            border-radius: 20px;
+        }
+        .shamjonj-img{
+            width: 50%;
+            float: right;
+            height: 300px;
+            text-align: center;              
+            justify-content: center;           
+            background-size: cover;          
+            background-position: center;     
+            border-radius: 20px;
+        }
+        .mujata-img {
+            width: 50%;
+            height: 300px;
+            float: left;
+            text-align: center;              
+            justify-content: center;           
+            background-size: cover;          
+            background-position: center;     
+            border-radius: 20px;
+        }
+
+        .mupi-text{
+            width: 50%;
+            float: right;
+            height: 300px;  
+            display: flex;  
+            align-items: center;     
+            justify-content: center;     
+            text-align: left; 
+            padding: 20px;           
+
+        }
+        .shamjonj-text{
+            width: 50%;
+            float: left;
+            height: 300px;  
+            display: flex;  
+            align-items: center;     
+            justify-content: center;     
+            text-align: left; 
+            padding: 20px;           
+        }
+        .mujata-text {
+            width: 50%;
+            height: 300px;  
+            float: right;
+            display: flex;  
+            align-items: center;     
+            justify-content: center;     
+            text-align: left; 
+            padding: 20px;           
+        }
+
+        /* Background Image Animations */
+        @keyframes BgAnimation1 {
+            0% {
+                background-image: url("images/mujata\(1\).jpg");
+            }
+            50% {
+                background-image: url("images/mujata\(2\).jpg");
+            }
+            100% {
+                background-image: url("images/mujata\(3\).jpg");
+            }
+        }
+
+        @keyframes BgAnimation2 {
+            0% {
+                background-image: url("images/sam.jpg");
+            }
+            50% {
+                background-image: url("images/sam\ \(2\).jpg");
+            }
+            100% {
+                background-image: url("images/sam\(3\).jpg");
+            }
+        }
+
+        @keyframes BgAnimation3 {
+            0% {
+                background-image: url("images/mupi\ \(1\).jpg");
+            }
+            50% {
+                background-image: url("images/mupi\ \(2\).jpg");
+            }
+            100% {
+                background-image: url("images/mupi\ \(3\).jpg");
+            }
+        }
+
+        .mujata-img {
+            animation: BgAnimation1 6s linear infinite; /* Infinite background animation */
+            box-shadow: -10px 10px 10px rgba(3, 10, 225, 0.5); 
+        }
+
+        .shamjonj-img {
+            animation: BgAnimation2 6s linear infinite; 
+            box-shadow: 10px 10px 10px rgba(3, 10, 225, 0.5); 
+        }
+
+        .mupi-img {
+            animation: BgAnimation3 6s linear infinite; 
+            box-shadow: -10px 10px 10px rgba(3, 10, 225, 0.5); 
+        }
+
+        /* Responsive Design for Tablets and Below */
+        @media only screen and (max-width: 768px) {
+            /* Adjust main content padding */
+            .main {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            /* Show hamburger menu */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide navigation links by default */
+            .nav-links ul {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                position: absolute;
+                top: 60px; /* Adjust based on navbar height */
+                left: 0;
+            }
+
+            /* Show nav links when active */
+            .nav-links ul.active {
+                display: flex;
+            }
+
+            /* Hamburger Animation */
+            .toggle .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .toggle .line2 {
+                opacity: 0;
+            }
+
+            .toggle .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            /* Education section container adjustments */
+            .education .mupi,
+            .education .shamgonj,
+            .education .mujata {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            /* Image styles */
+            .education .mujata-img,
+            .education .mupi-img,
+            .education .shamjonj-img {
+                width: 100%;
+                height: 300px; /* Adjust as needed for better visibility */
+                background-size: cover;
+                background-position: center;
+                box-shadow: none; /* Remove shadow on mobile for cleaner look */
+                border-radius: 10px;
+            }
+
+            /* Adjust text containers */
+            .education .mupi-text,
+            .education .shamjonj-text,
+            .education .mujata-text {
+                width: 100%;
+                margin-top: 15px;
+                padding: 10px; /* Add padding for readability */
+                text-align: center; /* Center-align text on mobile */
+                line-height: 1.5;
+                font-size: 9pt;
+            }
+
+            /* Specific text sizes */
+            .education .shamjonj-text,
+            .education .mujata-text {
+                font-size: 10pt;
+            }
+
+            /* Adjust changing text font size */
+            .changing-text span {
+                font-size: 30pt;
+            }
+
+            /* Adjust main description font size */
+            .main-discription p {
+                font-size: 15pt;
+            }
+
+            /* Adjust main picture image width */
+            .main-picture img {
+                width: 60%;
+            }
+
+            /* Adjust main text font size */
+            .main-text {
+                font-size: 29pt;
+                margin-top: 6px;
+            }
+
+            /* Adjust Skills buttons */
+            .skill-button a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+
+        /* Responsive Design for Mobile */
+        @media only screen and (max-width: 480px) {
+            /* Further adjustments for smaller screens */
+            .changing-text span {
+                font-size: 24pt;
+            }
+
+            .main-discription p {
+                font-size: 14pt;
+            }
+
+            .main-picture img {
+                width: 80%;
+            }
+
+            .main-text {
+                font-size: 24pt;
+            }
+
+            .skill-button a {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+            .mujata-text,.shamjonj-text,.mupi-text {
+                border: 1px solid #ccc;
+                margin-top: 2px;
+                margin-bottom: 10px;
+
+
+
+            }
+            .mujata-text p,.shamjonj-text p,.mupi-text p{
+                width: 600px;   
+                height: 200px;  
+                overflow: auto;
+                
+                
+            }
+            .social{
+                margin-bottom: 400px;
+            }
+            .social-img img{
+                width: 7%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <section class="nav">
+        <nav class="nav-links">
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <!-- Navigation Links -->
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skill">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#social">Social</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <section class="main">
+            <div class="main-picture">
+                <img src="images/IMG_6922-01.png" alt="Profile Picture of Hamidur Rahman">
+            </div>
+            <div class="main-text">
+                <h1>Hi, I'm <span class="main-colour-text">Hamidur Rahman</span></h1>
+            </div>
+            <div class="changing-text">
+                <span>A Student</span>
+                <span>A Programmer</span>
+                <span>A Graphics Designer</span>
+                <span>A Poet</span>
+            </div>
+            <div class="main-discription">
+                <p>
+                    I'm a student currently pursuing a diploma in Engineering, specializing in Computer Science and Technology at Munshiganj Polytechnic Institute. I have a deep passion for writing and watching anime, both of which serve as creative outlets and sources of inspiration. As an introvert, I value solitude, using it as an opportunity for personal reflection and growth. My future plan is to become a software developer, where I aim to apply my technical skills and creativity to build innovative solutions in the field of technology. This ambition drives me to constantly enhance my programming knowledge and stay updated with the latest advancements in software development.
+                </p>
+            </div>
+        </section>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skill" id="skill">
+        <div class="skill-text">
+            <h3>Skills</h3>
+        </div>
+        <div class="skill-button">
+            <a href="https://en.wikipedia.org/wiki/HTML" target="_blank">HTML</a>
+            <a href="https://en.wikipedia.org/wiki/CSS" target="_blank">CSS</a>
+            <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a>
+            <a href="https://en.wikipedia.org/wiki/Microsoft_Office" target="_blank">MS Office</a>
+            <a href="https://en.wikipedia.org/wiki/Adobe_Photoshop" target="_blank">Adobe Photoshop</a>
+            <a href="https://en.wikipedia.org/wiki/Poetry#:~:text=Poetry%20(from%20the%20Greek%20word,is%20written%20by%20a%20poet." target="_blank">Poetry</a>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <h3>Education</h3>
+
+        <div class="mupi">
+            <div class="mupi-img">
+                <!-- Background images handled via CSS -->
+            </div>
+            <div class="mupi-text">
+                <p>
+                    <b>Munshiganj Polytechnic Institute</b><br>
+                    I am presently enrolled at Munshiganj Polytechnic Institute, pursuing a diploma in Computer Science and Technology for the 2023-2024 academic session. With a deep passion for technology and problem-solving, my ultimate objective is to become a proficient software engineer. I am committed to acquiring the necessary skills and expertise to contribute meaningfully to the software industry and drive innovation.
+                </p>
+            </div>
+        </div>
+        <div class="shamgonj">
+            <div class="shamjonj-img">
+                <!-- Background images handled via CSS -->
+            </div>
+            <div class="shamjonj-text">
+                <p>
+                    <b>Shamganj High School</b><br>
+                    I completed my SSC exam at Shamganj High School in Kalibari Bajar, Madargonj, Jamalpur. In 2022, I achieved a commendable GPA of 4.61 in the science group.The school’s proximity to my home facilitated a focused and enriching learning experience, laying a solid foundation for my academic and personal growth.
+                </p>
+            </div>
+        </div>
+        <div class="mujata">
+            <div class="mujata-img">
+                <!-- Background images handled via CSS -->
+            </div>
+            <div class="mujata-text">
+                <p>
+                    <b>Mujata Govt. Primary School</b><br>
+                    I complited my primary education in Mujata Govt. Primary School in Madargonj,Jamalpur.I completed my primary education in 2017, graduating with a GPA of 5.00. The school holds a special place in my heart as it was not only close to home but also where I laid the foundation of my academic journey.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="social" id="social">
+        <div class="social-text">
+            <h3>Social</h3>
+        </div>
+        <div class="social-img">
+            <a href="https://www.facebook.com/750008646764s" target="_blank"><img src="images/face.png" alt="Facebook"></a>
+            <a href="https://github.com/hamidur-shohan" target="_blank"><img src="images/git.png" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/hamidur-shohan/" target="_blank"><img src="images/in.png" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com/hamidur_shohan" target="_blank"><img src="images/ins.png" alt="Instagram"></a>
+            <a href="https://x.com/hamidur_shohan" target="_blank"><img src="images/x.png" alt="X"></a>
+            <a href="mailto:your-email@example.com" target="_blank"><img src="images/gamil.png" alt="Email"></a>
+            <a href="https://discord.com/channels/@hamidur_shohan" target="_blank"><img src="images/wp.png" alt="Discord"></a>
+        </div>
+    </section>
+
+    <!-- Embedded JavaScript for Hamburger Menu -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links ul');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        }
+    </script>
+</body>
+</html>
